@@ -1,0 +1,205 @@
+.kitchen-dashboard {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.kitchen-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kitchen-header h1 {
+  margin: 0;
+}
+
+.logout-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.kitchen-filters {
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  overflow-x: auto;
+}
+
+.kitchen-filters button {
+  padding: 10px 20px;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.kitchen-filters button.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+}
+
+.orders-container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.order-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.order-header h3 {
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.order-header p {
+  margin: 3px 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.order-time {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-badge.received {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-badge.preparing {
+  background: #cfe2ff;
+  color: #084298;
+}
+
+.status-badge.ready {
+  background: #d1e7dd;
+  color: #0f5132;
+}
+
+.status-badge.served {
+  background: #d0d0d0;
+  color: #333;
+}
+
+.order-items {
+  margin-bottom: 15px;
+}
+
+.order-items h4 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.order-item {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.special-instructions {
+  font-size: 0.85rem;
+  color: #ff6b6b;
+  font-style: italic;
+  margin-top: 4px;
+}
+
+.order-notes {
+  padding: 10px;
+  background: #fff3cd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  color: #856404;
+}
+
+.order-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.status-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.status-btn:hover {
+  transform: translateY(-2px);
+}
+
+.status-btn.preparing {
+  background: #cfe2ff;
+  color: #084298;
+}
+
+.status-btn.ready {
+  background: #d1e7dd;
+  color: #0f5132;
+}
+
+.status-btn.served {
+  background: #d0d0d0;
+  color: #333;
+}
+
+.loading, .no-orders {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.2rem;
+  color: #666;
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+  .orders-container {
+    grid-template-columns: 1fr;
+  }
+}
+

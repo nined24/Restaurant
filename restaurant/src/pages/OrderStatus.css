@@ -1,0 +1,186 @@
+.order-status-container {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.order-status-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-status-header h1 {
+  margin: 0;
+}
+
+.back-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.order-status-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.order-info-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.order-info-card h2 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.table-info, .order-time {
+  color: #666;
+  margin: 5px 0;
+}
+
+.status-timeline {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.status-timeline h3 {
+  margin: 0 0 20px 0;
+  color: #333;
+}
+
+.status-step {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+.status-step.active {
+  opacity: 1;
+  background: #f0f0f0;
+}
+
+.status-step.current {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border: 2px solid #667eea;
+}
+
+.step-icon {
+  font-size: 2rem;
+}
+
+.step-content h4 {
+  margin: 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.current-status {
+  margin: 5px 0 0 0;
+  color: #667eea;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.order-items-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.order-items-card h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.order-item:last-of-type {
+  border-bottom: none;
+}
+
+.item-name {
+  flex: 1;
+  color: #333;
+}
+
+.item-quantity {
+  color: #666;
+  margin: 0 15px;
+}
+
+.item-price {
+  color: #667eea;
+  font-weight: bold;
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 2px solid #e0e0e0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-primary, .btn-secondary {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-secondary {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #ff4444;
+}
+

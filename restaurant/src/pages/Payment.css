@@ -1,0 +1,132 @@
+.payment-container {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.payment-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.payment-header h1 {
+  margin: 0;
+}
+
+.payment-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.order-summary-card, .payment-method-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.order-summary-card h2, .payment-method-card h2 {
+  margin: 0 0 20px 0;
+  color: #333;
+}
+
+.summary-items {
+  margin-bottom: 15px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+  margin-top: 15px;
+  border-top: 2px solid #e0e0e0;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.payment-option:hover {
+  border-color: #667eea;
+  background: #f5f5f5;
+}
+
+.payment-option input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.payment-option span {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.payment-option input[type="radio"]:checked + span {
+  color: #667eea;
+}
+
+.payment-security {
+  text-align: center;
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.pay-button {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.pay-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.pay-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.2rem;
+}
+
