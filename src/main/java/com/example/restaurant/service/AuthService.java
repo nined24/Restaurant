@@ -1,14 +1,16 @@
 package com.example.restaurant.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
 import com.example.restaurant.dto.LoginRequest;
 import com.example.restaurant.dto.LoginResponse;
+import com.example.restaurant.dto.SignupRequest;
 import com.example.restaurant.model.Role;
 import com.example.restaurant.model.User;
 import com.example.restaurant.repository.UserRepository;
 import com.example.restaurant.util.JwtUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Service;
 
 @Service
 public class AuthService {
@@ -100,6 +102,30 @@ public class AuthService {
         customer.setRole(Role.CUSTOMER);
         customer.setActive(true);
         userRepository.save(customer);
+    }
+
+    public LoginResponse signup(SignupRequest request) {
+        // Check if username already exists
+        if (userRepository.findByUsername(request.getUsername()).isPresent()) {
+            throw new RuntimeException("Username already exists");
+        }
+
+        // Create new user
+        User user = new User();
+        user.setUsername(request.getUsername());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
+        user.setEmail(request.getUsername() + "@gustoso.com"); // Default email
+        user.setRole(Role.valueOf(request.getRole()));
+        user.setActive(true);
+
+        // Save user
+        User savedUser = userRepository.save(user);
+
+        // Generate JWT token
+        String token = jwtUtil.generateToken(savedUser.getUsername(), savedUser.getRole().name());
+
+        // Return login response
+        return new LoginResponse(token, savedUser.getUsername(), savedUser.getRole(), "Signup successful");
     }
 }
 

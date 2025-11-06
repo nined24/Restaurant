@@ -2,6 +2,7 @@ package com.example.restaurant.controller;
 
 import com.example.restaurant.dto.LoginRequest;
 import com.example.restaurant.dto.LoginResponse;
+import com.example.restaurant.dto.SignupRequest;
 import com.example.restaurant.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,19 @@ public class AuthController {
         } catch (Exception e) {
             response.put("error", e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+        }
+    }
+
+    @PostMapping("/signup")
+    public ResponseEntity<?> signup(@Valid @RequestBody SignupRequest request) {
+        try {
+            LoginResponse response = authService.signup(request);
+            return ResponseEntity.ok(response);
+        } catch (RuntimeException e) {
+            Map<String, String> error = new HashMap<>();
+            error.put("message", e.getMessage());
+            error.put("error", "Signup failed");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
         }
     }
 }

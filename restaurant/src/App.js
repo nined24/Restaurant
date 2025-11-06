@@ -4,7 +4,9 @@ import { ToastContainer } from 'react-toastify';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import Navbar from './components/Navbar';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 import QRScan from './pages/QRScan';
 import Menu from './pages/Menu';
 import Cart from './pages/Cart';
@@ -26,6 +28,7 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
       
       {/* Customer Routes */}
       <Route
@@ -124,6 +127,7 @@ function App() {
       <CartProvider>
         <Router>
           <div className="App">
+            <Navbar />
             <AppRoutes />
             <ToastContainer
               position="top-right"

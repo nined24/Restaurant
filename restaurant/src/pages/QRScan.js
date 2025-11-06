@@ -7,14 +7,16 @@ import './QRScan.css';
 
 const QRScan = () => {
   const videoRef = useRef(null);
+  const qrScannerRef = useRef(null);
   const [scanning, setScanning] = useState(false);
   const [qrCode, setQrCode] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
     return () => {
-      if (videoRef.current) {
-        QrScanner.stop();
+      if (qrScannerRef.current) {
+        qrScannerRef.current.stop();
+        qrScannerRef.current.destroy();
       }
     };
   }, []);
@@ -29,13 +31,13 @@ const QRScan = () => {
         videoRef.current.srcObject = stream;
         setScanning(true);
         
-        const qrScanner = new QrScanner(
+        qrScannerRef.current = new QrScanner(
           videoRef.current,
           (result) => handleScan(result.data),
           { returnDetailedScanResult: true }
         );
         
-        await qrScanner.start();
+        await qrScannerRef.current.start();
       }
     } catch (error) {
       toast.error('Camera access denied or not available');
@@ -89,7 +91,17 @@ const QRScan = () => {
               Start Camera Scan
             </button>
           ) : (
-            <button onClick={() => setScanning(false)} className="btn-secondary">
+            <button 
+              onClick={() => {
+                if (qrScannerRef.current) {
+                  qrScannerRef.current.stop();
+                  qrScannerRef.current.destroy();
+                  qrScannerRef.current = null;
+                }
+                setScanning(false);
+              }} 
+              className="btn-secondary"
+            >
               Stop Scanning
             </button>
           )}
